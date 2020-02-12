@@ -54,7 +54,7 @@ sfdx plugins
 
 log "Debug output"
 pwd
-find . -type f -and -not -path '*shane*' -exec grep -H -i "shane" {} \;
+find / -type f -name 'package.json' -and -not -path '*shane*' -exec grep -H -i "shane" {} \;
 
 #echo "y" | sfdx plugins:install -f shane-sfdx-plugins
 #log "Installing jq"

@@ -47,7 +47,7 @@ log "Installing sfdx-waw-plugin"
 echo "y" | sfdx plugins:install -f sfdx-waw-plugin
 log "Installing shane-sfdx-plugins"
 npm install -g shane-sfdx-plugins
-sfdx plugins:link ./.heroku/node/lib/node_modules/shane-sfdx-plugins
+sfdx plugins:link $BUILD_DIR/.heroku/node/lib/node_modules/shane-sfdx-plugins
 
 log "Output of sfdx plugins"
 sfdx plugins

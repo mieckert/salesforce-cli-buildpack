@@ -23,12 +23,9 @@ source $BP_DIR/lib/stdlib.sh
 
 ### Setup functions
 
-install_sfdx_cli() {
-  npm install sfdx-cli --global
-}
-
 setup_dirs() {
   export PATH="$BUILD_DIR/vendor/sfdx/cli/bin:$PATH"
+  export PATH="$BUILD_DIR/vendor/sfdx/jq:$PATH"
 }
 
 header 'Welcome to salesforce-cli-buildpack!'
@@ -43,8 +40,15 @@ debug "ENV_DIR: $ENV_DIR"
 debug "BP_DIR: $BP_DIR"
 
 setup_dirs
-log "Starting CLI installation ..."
-install_sfdx_cli
+
+log "Installing Salesforce CLI (SFDX)"
+npm install sfdx-cli --global
+log "Installing sfdx-waw-plugin"
+sfdx plugins:install sfdx-waw-plugin
+log "Installing shane-sfdx-plugins"
+sfdx plugins:install shane-sfdx-plugins
+log "Installing jq"
+npm install --global jq
 
 header "DONE! Completed in $(($SECONDS - $START_TIME))s"
 exit 0

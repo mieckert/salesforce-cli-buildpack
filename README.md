@@ -1,6 +1,7 @@
-# buildpack for sfdx cli
+# Heroku Buildpack for Salesforce CLI (SFDX) and more
 
-I took this from the official buildpack, forked for stability and removed jq because I don't use it in node (node does javacript just fine)
+This a Heroku Buildpack installing Salesforce CLI (SFDX), several plug-ins, jq (and potentially more)
+into your Heroku Dyno.  It is a fork from Shane's fork of the Heroku Buildpack.
 
 ## Usage
 

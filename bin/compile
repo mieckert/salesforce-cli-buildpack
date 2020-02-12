@@ -44,17 +44,18 @@ setup_dirs
 log "Installing Salesforce CLI (SFDX)"
 npm install sfdx-cli --global
 log "Installing sfdx-waw-plugin"
-echo "y" | sfdx plugins:install -f sfdx-waw-plugin
+npm install -g sfdx-waw-plugin
 log "Installing shane-sfdx-plugins"
 npm install -g shane-sfdx-plugins
-sfdx plugins:link $BUILD_DIR/.heroku/node/lib/node_modules/shane-sfdx-plugins
+#sfdx plugins:link $BUILD_DIR/.heroku/node/lib/node_modules/shane-sfdx-plugins
 
 log "Output of sfdx plugins"
 sfdx plugins
 
 log "Debug output"
+echo ~
+cd
 pwd
-find / -type f -name 'package.json' -and -not -path '*shane*' -exec grep -H -i "shane" {} \;
 
 #echo "y" | sfdx plugins:install -f shane-sfdx-plugins
 #log "Installing jq"

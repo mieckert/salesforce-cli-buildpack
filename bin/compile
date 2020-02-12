@@ -51,18 +51,11 @@ echo "y" | sfdx plugins:install shane-sfdx-plugins
 log "Moving plugins to BUILD_DIR"
 cp -R ~/.local $BUILD_DIR
 
-#mkdir $BUILD_DIR/.local
-#mkdir $BUILD_DIR/.local/share
-#mkdir $BUILD_DIR/.local/share/sfdx/
-#cat > $BUILD_DIR/.local/share/sfdx/package.json <<EOF
-
-log "Output of sfdx plugins"
-sfdx plugins
-
-log "Debug output"
-echo ~
-cd
+log "Installing jq"
+cd "$BUILD_DIR/.heroku/node/bin"
 pwd
+wget --quiet -O jq https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64
+chmod +x jq
 
 #echo "y" | sfdx plugins:install -f shane-sfdx-plugins
 #log "Installing jq"

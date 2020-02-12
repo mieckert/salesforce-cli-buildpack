@@ -52,6 +52,10 @@ sfdx plugins:link $BUILD_DIR/.heroku/node/lib/node_modules/shane-sfdx-plugins
 log "Output of sfdx plugins"
 sfdx plugins
 
+log "Debug output"
+pwd
+find . -type f -and -not -path '*shane*' -exec grep -H -i "shane" {} \;
+
 #echo "y" | sfdx plugins:install -f shane-sfdx-plugins
 #log "Installing jq"
 #npm install jq --global

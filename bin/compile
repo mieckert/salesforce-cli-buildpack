@@ -46,7 +46,12 @@ npm install sfdx-cli --global
 log "Installing sfdx-waw-plugin"
 echo "y" | sfdx plugins:install -f sfdx-waw-plugin
 log "Installing shane-sfdx-plugins"
-echo "y" | sfdx plugins:install -f shane-sfdx-plugins
+npm install -g shane-sfdx-plugins
+
+log "Output of sfdx plugins"
+sfdx plugins
+
+#echo "y" | sfdx plugins:install -f shane-sfdx-plugins
 #log "Installing jq"
 #npm install jq --global
 

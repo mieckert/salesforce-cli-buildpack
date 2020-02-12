@@ -43,11 +43,17 @@ setup_dirs
 
 log "Installing Salesforce CLI (SFDX)"
 npm install sfdx-cli --global
-log "Installing sfdx-waw-plugin"
-npm install -g sfdx-waw-plugin
+#log "Installing sfdx-waw-plugin"
+#npm install -g sfdx-waw-plugin
 log "Installing shane-sfdx-plugins"
 npm install -g shane-sfdx-plugins
 #sfdx plugins:link $BUILD_DIR/.heroku/node/lib/node_modules/shane-sfdx-plugins
+
+
+#mkdir $BUILD_DIR/.local
+#mkdir $BUILD_DIR/.local/share
+#mkdir $BUILD_DIR/.local/share/sfdx/
+#cat > $BUILD_DIR/.local/share/sfdx/package.json <<EOF
 
 log "Output of sfdx plugins"
 sfdx plugins

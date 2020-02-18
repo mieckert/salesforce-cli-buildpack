@@ -21,13 +21,6 @@ BP_DIR=$(cd $(dirname ${0:-}); cd ..; pwd)
 source $BP_DIR/lib/common.sh
 source $BP_DIR/lib/stdlib.sh
 
-### Setup functions
-
-setup_dirs() {
-  export PATH="$BUILD_DIR/vendor/sfdx/cli/bin:$PATH"
-  export PATH="$BUILD_DIR/vendor/sfdx/jq:$PATH"
-}
-
 header 'Welcome to salesforce-cli-buildpack!'
 log "Exporting environment directories ..."
 export_env "$ENV_DIR"
@@ -39,7 +32,9 @@ log "CACHE_DIR: $CACHE_DIR"
 log "ENV_DIR: $ENV_DIR"
 log "BP_DIR: $BP_DIR"
 
-setup_dirs
+log "NPM Configuration:"
+npm config list -l
+
 
 log "Installing Salesforce CLI (SFDX)"
 npm install sfdx-cli --global

@@ -39,9 +39,14 @@ log "BP_DIR: $BP_DIR"
 log "NPM Configuration:"
 npm config list -l
 
+log "Before:"
+ls ${BUILD_DIR}/.heroku/node/bin/
 
 log "Installing Salesforce CLI (SFDX)"
 npm install sfdx-cli@${SFDX_VERSION} --global
+
+log "After:"
+ls ${BUILD_DIR}/.heroku/node/bin/
 
 log "Installing sfdx-waw-plugin"
 echo "y" | sfdx plugins:install sfdx-waw-plugin

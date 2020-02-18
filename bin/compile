@@ -3,6 +3,10 @@
 
 START_TIME=$SECONDS
 
+# VERSIONS
+#SFDX_VERSION=latest
+SFDX_VERSION=7.45.1
+
 # set -x
 set -o errexit    # always exit on error
 set -o pipefail   # don't ignore exit codes when piping output
@@ -37,7 +41,7 @@ npm config list -l
 
 
 log "Installing Salesforce CLI (SFDX)"
-npm install sfdx-cli --global
+npm install sfdx-cli@${SFDX_VERSION} --global
 
 log "Installing sfdx-waw-plugin"
 echo "y" | sfdx plugins:install sfdx-waw-plugin
